@@ -1,0 +1,51 @@
+/* index.css - global styles and colors used by the whole app */
+
+:root {
+  --forest: #12372a;
+  --leaf: #23734d;
+  --leaf-dark: #1a5a3b;
+  --mint: #dff1e4;
+  --page-bg: #f1f6f2;
+  --ink: #1b2a23;
+  --muted: #5a6d63;
+  --line: #d9e6dd;
+  --marigold: #f2b43c;
+  --danger: #b3382c;
+  --white: #ffffff;
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--page-bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--marigold);
+  outline-offset: 2px;
+}

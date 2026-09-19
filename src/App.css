@@ -1,0 +1,603 @@
+/* =========================================================
+   App.css - styles for Paradise Nursery
+   1. Landing page (with the background image)
+   2. Navbar
+   3. Plants page
+   4. Cart page
+   5. Responsive rules
+   ========================================================= */
+
+
+/* =========================================================
+   1. LANDING PAGE
+   ========================================================= */
+
+/* BACKGROUND IMAGE of the landing page:
+   "landing-bg.svg" (in src/assets) is a leafy green picture.
+   A dark gradient is placed on top of it so the white text is easy to read. */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 48px clamp(24px, 8vw, 120px);
+  color: var(--white);
+  background-image:
+    linear-gradient(90deg, rgba(8, 36, 25, 0.82) 0%, rgba(8, 36, 25, 0.45) 60%, rgba(8, 36, 25, 0.15) 100%),
+    url("./assets/landing-bg.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-content {
+  max-width: 600px;
+}
+
+.landing-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.landing-tagline {
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: #b9e9c8;
+}
+
+.about-us {
+  margin-top: 28px;
+  padding-left: 20px;
+  border-left: 4px solid var(--marigold);
+}
+
+.about-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.about-us p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 10px;
+}
+
+.get-started-btn {
+  margin-top: 28px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--marigold);
+  color: var(--forest);
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #ffc85a;
+  transform: translateY(-2px);
+}
+
+.landing-showcase {
+  position: relative;
+  width: 340px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+.showcase-image {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.showcase-image-large {
+  width: 270px;
+  height: 270px;
+  top: 0;
+  right: 0;
+}
+
+.showcase-image-small {
+  width: 190px;
+  height: 190px;
+  bottom: 0;
+  left: 0;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px clamp(16px, 5vw, 56px);
+  background-color: var(--forest);
+  color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #cfe8d8;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.navbar-link.active {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.navbar-link.cart-link {
+  background-color: var(--marigold);
+  color: var(--forest);
+}
+
+.navbar-link.cart-link:hover {
+  background-color: #ffc85a;
+}
+
+
+/* =========================================================
+   3. PLANTS PAGE
+   ========================================================= */
+
+.products-page,
+.cart-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px clamp(16px, 4vw, 40px) 64px;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--forest);
+}
+
+.page-subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.category-section {
+  margin-top: 44px;
+}
+
+.category-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  color: var(--leaf-dark);
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid var(--line);
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.plant-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(18, 55, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(18, 55, 42, 0.16);
+}
+
+.plant-thumbnail {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.plant-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 20px;
+}
+
+.plant-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--forest);
+}
+
+.plant-description {
+  flex: 1;
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.plant-price {
+  margin: 12px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--leaf);
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--leaf);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background-color: var(--leaf-dark);
+}
+
+/* Look of the button after the plant has been added */
+.add-to-cart-btn.added,
+.add-to-cart-btn:disabled {
+  background-color: var(--mint);
+  color: var(--leaf-dark);
+  cursor: not-allowed;
+}
+
+.add-to-cart-btn.added::before {
+  content: "✓ ";
+}
+
+
+/* =========================================================
+   4. CART PAGE
+   ========================================================= */
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(18, 55, 42, 0.08);
+}
+
+.cart-item-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cart-item-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--forest);
+}
+
+.cart-item-price {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.quantity-label {
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+.quantity-btn {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--leaf);
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--leaf);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.quantity-btn:hover {
+  background-color: var(--leaf);
+  color: var(--white);
+}
+
+.quantity-value {
+  min-width: 28px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-item-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--leaf);
+}
+
+.delete-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--danger);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--danger);
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.delete-btn:hover {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+.cart-summary {
+  position: sticky;
+  top: 90px;
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(18, 55, 42, 0.08);
+}
+
+.summary-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--forest);
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.05rem;
+}
+
+.summary-row strong {
+  font-size: 1.2rem;
+}
+
+.summary-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--leaf-dark);
+  border-bottom: none;
+  margin-bottom: 12px;
+}
+
+.summary-total strong {
+  font-size: 1.6rem;
+}
+
+.checkout-btn,
+.continue-btn {
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.checkout-btn {
+  border: none;
+  background-color: var(--leaf);
+  color: var(--white);
+}
+
+.checkout-btn:hover {
+  background-color: var(--leaf-dark);
+}
+
+.continue-btn {
+  margin-top: 12px;
+  border: 2px solid var(--leaf);
+  background-color: var(--white);
+  color: var(--leaf);
+}
+
+.continue-btn:hover {
+  background-color: var(--mint);
+}
+
+/* Empty cart */
+.empty-cart {
+  max-width: 520px;
+  margin: 48px auto 0;
+  padding: 48px 32px;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(18, 55, 42, 0.08);
+}
+
+.empty-cart-icon {
+  font-size: 3.5rem;
+}
+
+.empty-cart-title {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--forest);
+}
+
+.empty-cart-text {
+  margin: 8px 0 24px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.empty-cart .continue-btn {
+  display: inline-block;
+  width: auto;
+  margin-top: 0;
+  padding: 12px 32px;
+  background-color: var(--leaf);
+  color: var(--white);
+}
+
+.empty-cart .continue-btn:hover {
+  background-color: var(--leaf-dark);
+}
+
+
+/* =========================================================
+   5. RESPONSIVE DESIGN
+   ========================================================= */
+
+/* Tablets and small laptops */
+@media (max-width: 900px) {
+  .landing-showcase {
+    display: none;
+  }
+
+  .landing-page {
+    background-image:
+      linear-gradient(180deg, rgba(8, 36, 25, 0.75) 0%, rgba(8, 36, 25, 0.55) 100%),
+      url("./assets/landing-bg.svg");
+  }
+
+  .plant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .plant-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .plant-info {
+    padding: 12px 12px 14px;
+  }
+
+  .plant-description {
+    display: none;
+  }
+
+  .plant-name {
+    font-size: 1.05rem;
+  }
+
+  .cart-item {
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+  }
+
+  .cart-item-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cart-item-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .landing-page {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+}
