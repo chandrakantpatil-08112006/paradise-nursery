@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // 1. Type your GitHub repository name here (exactly as it appears on GitHub).
 //    Example: if your repo URL is github.com/john/paradise-nursery
 //    then write:  const repositoryName = "paradise-nursery";
-const repositoryName = "YOUR-REPOSITORY-NAME";
+const repositoryName = "paradise-nursery";
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
